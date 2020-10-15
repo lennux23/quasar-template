@@ -1,5 +1,7 @@
 <template>
   <div class="q-pa-md">
+    <e-huno :saludo="'Titulo 1'" :color="'purple'" @medisteclic="manejarclic()" />
+    <e-huno :saludo="'Titulo 2'" />
     <div class="row justify-end q-py-sm q-col-gutter-x-sm">
       <div class="col-2">
         <q-btn
@@ -43,10 +45,12 @@
 
 <script>
 import ExportFile from 'src/components/local/ExportFile.vue';
+import EHuno from 'src/components/local/EHuno.vue';
 export default {
   name: 'list-data',
   components: {
     ExportFile,
+    EHuno,
   },
   data() {
     return {
@@ -110,6 +114,9 @@ export default {
   methods: {
     async handleExport() {
       // llamado al action/ api
+    },
+    manejarclic() {
+      console.log('mannejar clic desde padre');
     },
   },
 };
