@@ -1,7 +1,13 @@
 <template>
   <div class="q-pa-md">
-    <e-huno :saludo="'Titulo 1'" :color="'purple'" @medisteclic="manejarclic()" />
-    <e-huno :saludo="'Titulo 2'" />
+    <e-huno
+      v-for="(etiqueta, index) in etiquetas"
+      :key="index"
+      :titulo="tituloParent"
+      @papahazmecaso="manejarclic"
+    />
+    <q-input v-model="tituloParent" label="Introduce el Título" />
+
     <div class="row justify-end q-py-sm q-col-gutter-x-sm">
       <div class="col-2">
         <q-btn
@@ -54,6 +60,22 @@ export default {
   },
   data() {
     return {
+      tituloParent: 'Texto inicial',
+      etiquetas: [
+        {
+          titulo: 'Titulo Mas 1',
+          subtitulo: 'Sub 1',
+        },
+        {
+          titulo: 'Titulo 2',
+          subtitulo: 'Sub 2',
+        },
+        {
+          titulo: 'Titulo 3',
+          subtitulo: 'Sub 3',
+        },
+      ],
+
       intercambios: [
         {
           folio: 123131231,
@@ -115,8 +137,8 @@ export default {
     async handleExport() {
       // llamado al action/ api
     },
-    manejarclic() {
-      console.log('mannejar clic desde padre');
+    manejarclic(str) {
+      this.tituloParent = str + '';
     },
   },
 };

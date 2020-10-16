@@ -1,24 +1,37 @@
 <template>
-  <div>
-    <h1 :style="`color:${color};`" @click="handleClic()">{{ saludo }}</h1>
-    <h6 :style="`color:green;`">{{ local }}</h6>
-  </div>
+  <q-card class="q-my-md q-px-md q-py-sm bg-purple-1">
+    <div :style="`color:${color};`" class="text-body2" @click="handleClic()">
+      {{ titulo }}
+    </div>
+    <!--    <div :style="`color:${color};`" class="text-caption">
+      {{ etiquetas.subtitulo }}
+    </div> -->
+  </q-card>
 </template>
 <script>
 export default {
   name: 'e-huno',
   data() {
     return {
-      local: 1,
+      local: 0,
     };
   },
   props: {
-    saludo: {
+    /*     etiquetas: {
+      type: Object,
+      required: true,
+      description: 'Etiquetas del card',
+    }, */
+    titulo: {
       type: String,
-      required: false,
-      description: 'Texto a mostrar.',
-      default: 'Hola mundo',
-    },
+      required: true,
+      description: 'Titulo del card',
+    } /*
+    subtitulo: {
+      type: String,
+      required: true,
+      description: 'Subtitulo del card',
+    }, */,
     color: {
       type: String,
       required: false,
@@ -27,8 +40,7 @@ export default {
   },
   methods: {
     handleClic() {
-      this.local++;
-      this.$emit('medisteclic');
+      this.$emit('papahazmecaso', this.local++);
     },
   },
 };
