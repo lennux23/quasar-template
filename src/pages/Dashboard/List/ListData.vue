@@ -1,134 +1,55 @@
 <template>
   <div class="q-pa-md">
-    <e-huno
-      v-for="(etiqueta, index) in etiquetas"
-      :key="index"
-      :titulo="tituloParent"
-      @papahazmecaso="manejarclic"
-    />
-    <q-input v-model="tituloParent" label="Introduce el Título" />
-
-    <div class="row justify-end q-py-sm q-col-gutter-x-sm">
-      <div class="col-2">
-        <q-btn
-          color="primary"
-          class="fit"
-          no-caps
-          label="Carga masiva"
-          @click="
-            $router.push({
-              name: 'bulkLoad',
-              query: {
-                id: '20',
-              },
-            })
-          "
-        />
-      </div>
-      <div>
-        <exportFile
-          ref="exportPackages"
-          class="fit"
-          directExport
-          :data="intercambios"
-          :columns="columns"
-          fileName="nombre_reporte"
-          fileSheetName="MiReporte"
-          :labelButton="$t('gral.export')"
-          @click="handleExport"
-        />
+    <div class="row q-col-gutter-sm">
+      <div class="col-6 " v-for="(etiqueta, index) in etiquetas" :key="index">
+        <e-card :titulo="etiqueta.titulo" />
       </div>
     </div>
-    <e-table
-      :data="intercambios"
-      :columns="columns"
-      :showAddBtn="false"
-      :serverSide="false"
-    >
-    </e-table>
+    <div class="row">
+      <div class="col-5">
+        <q-input v-model="name" label="Introduce el Nombre" />
+        <h3>{{ contador }}</h3>
+        <h3>{{ multiplicaPorDos }}</h3>
+        <div class="row">
+          <q-btn
+            color="primary"
+            class="fit"
+            no-caps
+            label="Aumenta++"
+            @click="aumenta()"
+          />
+          <q-btn
+            color="red"
+            class="fit"
+            no-caps
+            label="Decremetar"
+            @click="decrementa()"
+          />
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
-import ExportFile from 'src/components/local/ExportFile.vue';
-import EHuno from 'src/components/local/EHuno.vue';
+import ECard from 'src/components/local/ECard.vue';
+import { mapState, mapGetters } from 'vuex';
+
 export default {
   name: 'list-data',
   components: {
-    ExportFile,
-    EHuno,
+    ECard,
+  },
+  computed: {
+    ...mapState('numeros', ['contador']),
+    ...mapGetters('numeros', ['multiplicaPorDos']),
   },
   data() {
     return {
-      tituloParent: 'Texto inicial',
+      name: '',
       etiquetas: [
         {
-          titulo: 'Titulo Mas 1',
-          subtitulo: 'Sub 1',
-        },
-        {
-          titulo: 'Titulo 2',
-          subtitulo: 'Sub 2',
-        },
-        {
-          titulo: 'Titulo 3',
-          subtitulo: 'Sub 3',
-        },
-      ],
-
-      intercambios: [
-        {
-          folio: 123131231,
-          name: 'Pancho Lopez',
-        },
-        {
-          folio: 1212,
-          name: 'Rene Garcia',
-        },
-        {
-          folio: 11,
-          name: 'Pancho Daniel',
-        },
-        {
-          folio: 222,
-          name: 'Vane Garcia',
-        },
-        {
-          folio: 333,
-          name: 'Lizeth Lopez',
-        },
-        {
-          folio: 4444,
-          name: 'Joselyn Garcia',
-        },
-        {
-          folio: 5555,
-          name: 'Pancho Hernandez',
-        },
-        {
-          folio: 666,
-          name: 'Denisse Garcia',
-        },
-      ],
-      columns: [
-        {
-          name: 'folio',
-          required: true,
-          align: 'center',
-          label: 'Folio',
-          field: 'folio',
-          format: val => `${this.$options.filters.dummy(val)}`,
-          sortable: true,
-          exportable: true,
-          type: 'Number',
-        },
-        {
-          name: 'name',
-          required: true,
-          align: 'center',
-          label: 'Nombre',
-          field: 'name',
-          format: val => val,
+          titulo: 'Developer',
         },
       ],
     };
@@ -137,8 +58,11 @@ export default {
     async handleExport() {
       // llamado al action/ api
     },
-    manejarclic(str) {
-      this.tituloParent = str + '';
+    aumenta() {
+      this.$store.dispatch('numeros/aumentaUno');
+    },
+    decrementa() {
+      this.$store.dispatch('numeros/decrementar');
     },
   },
 };

@@ -6,7 +6,7 @@
           <q-img contain :src="'/logo.png'" style="height: 60px; width:60px;" />
         </div>
         <q-space />
-        <div class="text-body2 text-primary q-mr-sm">Usuario Test</div>
+        <div class="text-body2 text-primary q-mr-sm">{{ contador }}</div>
         <e-avatar size="60px" />
       </div>
     </q-header>
@@ -19,9 +19,13 @@
 
 <script>
 import EAvatar from 'src/components/local/EAvatar';
+import { mapState } from 'vuex';
 export default {
   components: {
     EAvatar,
+  },
+  computed: {
+    ...mapState('numeros', ['contador']),
   },
   data() {
     return {};
