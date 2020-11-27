@@ -2,10 +2,22 @@
   <div class="q-pa-md">
     <div class="row q-col-gutter-sm">
       <div class="col-6 " v-for="(etiqueta, index) in etiquetas" :key="index">
-        <e-card :titulo="etiqueta.titulo" />
+        <e-card :titulo="etiqueta.titulo" :description="etiqueta.description" />
       </div>
     </div>
-    <div class="row">
+    <e-card titulo="Tarehta 2">
+      <template v-slot:header>
+        <h1>Contenido de padre</h1>
+      </template>
+      <template v-slot:footer> </template>
+    </e-card>
+    <e-card titulo="Tarehta 3">
+      <template slot="footer">
+        <q-input v-model="name" label="Introduce el Nombre" />
+      </template>
+    </e-card>
+    <e-card titulo="Tarehta 4" />
+    <!--  <div class="row">
       <div class="col-5">
         <q-input v-model="name" label="Introduce el Nombre" />
         <h3>{{ contador }}</h3>
@@ -27,7 +39,7 @@
           />
         </div>
       </div>
-    </div>
+    </div> -->
   </div>
 </template>
 
@@ -50,6 +62,11 @@ export default {
       etiquetas: [
         {
           titulo: 'Developer',
+          description: 'Una descripción',
+        },
+        {
+          titulo: 'ADmin',
+          description: 'Una descripción',
         },
       ],
     };

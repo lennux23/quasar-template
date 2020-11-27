@@ -1,24 +1,27 @@
 <template>
   <q-card class="q-my-md q-px-md q-py-sm bg-blue-1">
+    <slot name="header"></slot>
     <div :style="`color:${color};`" class="text-body2" @click="handleClic()">
       {{ titulo }}
     </div>
-    <div class="row items-center justify-end">
-      <div class="text-body2 text-primary q-mr-sm"></div>
-      <e-avatar size="60px" />
-    </div>
+    <slot name="footer"> <e-link /> </slot>
   </q-card>
 </template>
 <script>
-import EAvatar from 'src/components/local/EAvatar';
+import ELink from 'src/components/local/ELink';
+
 export default {
   name: 'e-card',
   components: {
-    EAvatar,
+    ELink,
   },
   data() {
     return {
       local: 0,
+      variableInterna: {
+        name: 'Mau',
+        age: 10,
+      },
     };
   },
   props: {
@@ -28,6 +31,11 @@ export default {
       description: 'Etiquetas del card',
     }, */
     titulo: {
+      type: String,
+      required: true,
+      description: 'Titulo del card',
+    },
+    description: {
       type: String,
       required: true,
       description: 'Titulo del card',
