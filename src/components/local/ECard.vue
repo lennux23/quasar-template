@@ -4,17 +4,18 @@
     <div :style="`color:${color};`" class="text-body2" @click="handleClic()">
       {{ titulo }}
     </div>
-    <slot name="footer"> <e-link /> </slot>
+
+    <slot name="description">
+      <div class="text-caption text-blue">
+        {{ description }}
+      </div>
+    </slot>
   </q-card>
 </template>
 <script>
-import ELink from 'src/components/local/ELink';
-
 export default {
   name: 'e-card',
-  components: {
-    ELink,
-  },
+
   data() {
     return {
       local: 0,

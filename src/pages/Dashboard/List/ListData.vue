@@ -5,18 +5,14 @@
         <e-card :titulo="etiqueta.titulo" :description="etiqueta.description" />
       </div>
     </div>
+    <e-card titulo="Tarehta 2" description="Hola descripcion" />
     <e-card titulo="Tarehta 2">
-      <template v-slot:header>
-        <h1>Contenido de padre</h1>
-      </template>
-      <template v-slot:footer> </template>
-    </e-card>
-    <e-card titulo="Tarehta 3">
-      <template slot="footer">
-        <q-input v-model="name" label="Introduce el Nombre" />
+      <template v-slot:description>
+        <div class="text-purple">
+          Descripcon desde padre
+        </div>
       </template>
     </e-card>
-    <e-card titulo="Tarehta 4" />
     <!--  <div class="row">
       <div class="col-5">
         <q-input v-model="name" label="Introduce el Nombre" />
