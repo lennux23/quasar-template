@@ -32,6 +32,15 @@ export default {
       noData: 'No information to show.',
     },
   },
+  modal:{
+    select: 'Select the required file and press upload',
+    btnAdd: 'Add attachment',
+    btnUpload: "Upload",
+    max: 'Max 1 MB',
+    remove: 'remove',
+    singleFile: "Single File",
+    multiFile: "Multi Files"
+  },
   errors: {
     server: {
       forbidden: 'Denied access',
