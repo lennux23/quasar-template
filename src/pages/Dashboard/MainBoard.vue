@@ -156,6 +156,7 @@
         </q-card>
       </template></e-modal
     >
+    <e-calendar class="q-mt-xl"></e-calendar>
 
     <transition
       mode="out-in"
@@ -169,7 +170,9 @@
   </q-page>
 </template>
 <script>
+import ECalendar from 'src/components/global/ECalendar.vue';
 export default {
+  components: { ECalendar },
   name: 'main-board',
   data() {
     return {
