@@ -36,143 +36,23 @@
       :btnText="$t('modal.btnUpload')"
     >
       <template v-slot:body>
-        <q-card class="q-mr-xl btm-add">
-          <q-tabs
-            v-model="tab"
-            dense
-            class="text-grey"
-            active-color="primary"
-            indicator-color="primary"
-            align="justify"
-            narrow-indicator
-          >
-            <q-tab name="single file" :label="$t('modal.singleFile')" />
-            <q-tab name="multiple files" :label="$t('modal.multiFile')" />
-          </q-tabs>
-
-          <q-separator />
-
-          <q-tab-panels v-model="tab" animated>
-            <q-tab-panel name="single file">
-              {{ select }}
-              <div class="q-mt-xl btn-add-container">
-                <q-btn
-                  class="btn-add"
-                  flat
-                  icon="
-                  add_circle_outline"
-                  color="orange-4"
-                  :label="$t('modal.btnAdd')"
-                  @click="$refs.uploadFile.pickFiles()"
-                />
-                <span class="label-btn">{{ max }}</span>
-                <div class="q-mt-lg" :hidden="fileToUpload === null">
-                  <q-file
-                    :counter-label="counterLabelFn"
-                    max-files="1"
-                    class="e-file"
-                    outlined
-                    color="orange-4"
-                    style="color: $orange-4;"
-                    bottom-slots
-                    v-model="fileToUpload"
-                    ref="uploadFile"
-                    counter
-                  >
-                    <template v-slot:prepend>
-                      <q-icon size="xs" class="i-file" name="attach_file" />
-                    </template>
-                    <template v-slot:append>
-                      <div
-                        @click="fileToUpload = null"
-                        class="e-remove-btn cursor-pointer"
-                      >
-                        {{ remove }}
-                      </div>
-                    </template>
-                  </q-file>
-                </div>
-              </div>
-            </q-tab-panel>
-
-            <q-tab-panel name="multiple files">
-              {{ select }}
-              <div class="q-mt-xl btn-add-container">
-                <q-btn
-                  class="btn-add"
-                  flat
-                  icon="
-                  add_circle_outline"
-                  color="orange-4"
-                  :label="$t('modal.btnAdd')"
-                  @click="$refs.uploadFile.pickFiles()"
-                />
-                <span class="label-btn">{{ maxFilesMult }} </span>
-                <div class="q-mt-lg" :hidden="fileToUpload === null">
-                  <q-file
-                    class="e-file-mult"
-                    outlined
-                    max-files="3"
-                    :counter-label="counterLabel"
-                    color="orange-4"
-                    bottom-slots
-                    v-model="fileToUpload"
-                    ref="uploadFile"
-                    counter
-                  >
-                    <template v-slot:prepend>
-                      <q-icon size="xs" class="i-file" name="attach_file" />
-                    </template>
-                    <template v-slot:append>
-                      <div @click="fileToUpload = null" class="e-remove-btn">
-                        {{ remove }}
-                      </div>
-                    </template>
-                  </q-file>
-                  <q-file
-                    class="e-file-mult"
-                    outlined
-                    max-files="3"
-                    :counter-label="counterLabel"
-                    color="orange-4"
-                    bottom-slots
-                    v-model="fileToUpload"
-                    ref="uploadFile"
-                    counter
-                  >
-                    <template v-slot:prepend>
-                      <q-icon size="xs" class="i-file" name="attach_file" />
-                    </template>
-                    <template v-slot:append>
-                      <div @click="fileToUpload = null" class="e-remove-btn">
-                        {{ remove }}
-                      </div>
-                    </template>
-                  </q-file>
-                </div>
-              </div>
-            </q-tab-panel>
-          </q-tab-panels>
-        </q-card>
-      </template></e-modal
-    >
-    <e-calendar class="q-mt-xl"></e-calendar>
-
+        <e-upload></e-upload>
+      </template>
+    </e-modal>
     <transition
       mode="out-in"
       enter-active-class="animated fadeIn"
       leave-active-class="animated fadeOut"
     >
       <div class="full-width">
+        <e-cardgraphic></e-cardgraphic>
         <router-view />
       </div>
     </transition>
   </q-page>
 </template>
 <script>
-import ECalendar from 'src/components/global/ECalendar.vue';
 export default {
-  components: { ECalendar },
   name: 'main-board',
   data() {
     return {
@@ -186,6 +66,16 @@ export default {
       options: ['English, USA', 'Español, MEX', 'Frances'],
       dense: true,
       denseOpts: true,
+      datacollection: {
+        labels: ['Transacciones Totales', 'Transacciones con alertas'],
+        datasets: [
+          {
+            label: '478', //Texto mostrado en el centro de la grafica
+            backgroundColor: ['red', 'orange', 'blue'],
+            data: [19, 29, 10],
+          },
+        ],
+      },
     };
   },
   props: {

@@ -2,19 +2,19 @@
   <div>
     <q-btn label="Modal Active" color="primary" @click="icon = true" />
     <q-dialog v-model="icon">
-      <q-card>
-        <div class="btncontainer">
-          <q-btn icon="close" class="btnx" flat round dense v-close-popup />
+      <q-card class="q-py-sm">
+        <div class="flex justify-end q-px-md">
+          <q-btn icon="close" flat round dense v-close-popup />
         </div>
-        <div class="cardCotainer">
-          <div class="text-h6">{{ title }}</div>
-          <div class="description text-caption">
+
+        <div class="q-px-xl">
+          <div class="text-h6 q-mb-md">{{ title }}</div>
+          <div class="text-caption q-mb-md">
             <slot name="header">{{ description }}</slot>
           </div>
-          <div></div>
           <slot name="body"></slot>
           <slot name="footer"
-            ><div class="q-mt-lg">
+            ><div class="q-mb-lg q-mt-xl">
               <q-btn
                 @click="save"
                 unelevated
@@ -42,7 +42,7 @@
 </template>
 <script>
 export default {
-  name: 'emodal/',
+  name: 'e-modal',
   data() {
     return {
       icon: false,
@@ -69,31 +69,31 @@ export default {
     },
   },
   methods: {
-    save: function() {
+    save() {
       this.$emit('save');
     },
-    cancel: function() {
+    cancel() {
       this.$emit('cancel');
     },
   },
 };
 </script>
-<style>
-.btnx {
+<style lang="scss">
+/* .btn {
   margin-left: 420px;
   margin-top: 10px;
-}
-.btncontainer {
+} */
+/* .btn-container {
   display: flex;
-  justify-content: start;
-  align-items: end;
-}
-.cardCotainer {
+  justify-content: flex-start;
+  align-items: flex-end;
+} */
+/* .card-container {
   margin: 0 0px 50px 50px;
   margin-top: 0;
-}
-.description {
+} */
+/* .description {
   width: 90%;
   margin-top: 10px;
-}
+} */
 </style>

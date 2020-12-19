@@ -32,7 +32,7 @@ export default {
 .q-date__navigation {
   .flex-center:nth-child(5n) {
     span {
-      .q-anchor--skip::after { 
+      .q-anchor--skip::after {
         content: '\25BE';
         margin-right: 50px;
         font-size: 1.25rem;
