@@ -10,8 +10,8 @@
         align="justify"
         narrow-indicator
       >
-        <q-tab name="single file" :label="$t('modal.singleFile')" />
-        <q-tab name="multiple files" :label="$t('modal.multiFile')" />
+        <q-tab name="single file" :label="$t('eUpload.singleFile')" />
+        <q-tab name="multiple files" :label="$t('eUpload.multiFile')" />
       </q-tabs>
 
       <q-separator />
@@ -26,7 +26,7 @@
               icon="
                   add_circle_outline"
               color="orange-4"
-              :label="$t('modal.btnAdd')"
+              :label="$t('eUpload.btnAdd')"
               @click="$refs.uploadFile.pickFiles()"
             />
             <span class="label-btn">{{ max }}</span>
@@ -68,7 +68,7 @@
               icon="
                   add_circle_outline"
               color="orange-4"
-              :label="$t('modal.btnAdd')"
+              :label="$t('eUpload.btnAdd')"
               @click="$refs.uploadFile.pickFiles()"
             />
             <span class="label-btn">{{ maxFilesMult }} </span>
@@ -117,19 +117,19 @@ export default {
     select: {
       type: String,
       default: function() {
-        return this.$t('modal.select');
+        return this.$t('eUpload.select');
       },
     },
     max: {
       type: String,
       default: function() {
-        return this.$t('modal.max');
+        return this.$t('eUpload.max');
       },
     },
     remove: {
       type: String,
       default: function() {
-        return this.$t('modal.remove');
+        return this.$t('eUpload.remove');
       },
     },
   },
