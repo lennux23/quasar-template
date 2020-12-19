@@ -109,6 +109,7 @@ export default {
       fileToUpload: null,
       files: null,
       tab: 'single file',
+      model: null,
       dense: true,
     };
   },
@@ -173,14 +174,22 @@ export default {
 .q-field--labeled ::-webkit-input-placeholder {
   display: block;
 }
-
+.q-card {
+  box-shadow: none;
+}
 .q-tab {
   padding: 0 27px 0 0;
 }
 .q-tabs__content--align-justify .q-tab {
   flex: none;
 }
-
+.q-tab-panel {
+  padding: 16px 0 0 0;
+  margin: 0 0 40px 0;
+}
+.q-btn {
+  text-transform: none;
+}
 body.desktop .q-hoverable:hover > .q-focus-helper {
   background: none;
 }
@@ -188,6 +197,10 @@ body.desktop .q-hoverable:hover > .q-focus-helper {
   padding: none;
   font-size: 0.8em;
   margin-left: -15px;
+}
+.btn-add-container .label-btn {
+  color: #777470;
+  font-size: 0.8em;
 }
 .i-file {
   margin-top: -10px;
