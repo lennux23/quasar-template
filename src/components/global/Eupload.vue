@@ -1,6 +1,6 @@
 <template>
   <div>
-    <q-card class="q-mr-xl btm-add">
+    <q-card class="btm-add">
       <q-tabs
         v-model="tab"
         dense
