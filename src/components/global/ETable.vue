@@ -121,7 +121,7 @@
           :disable="scope.isLastPage"
           @click="scope.lastPage"
         />
-        <div>Displaying ({{ data.length }} of {{ totalRowNumber }})</div>
+        <div>Displayinng ({{ data.length }} of {{ totalRowNumber }})</div>
 
         <div v-if="showAddBtn" class="absolute" style="right:0; bottom:15px">
           <q-btn icon="add" color="secondary" round @click="handleAdd()" />
