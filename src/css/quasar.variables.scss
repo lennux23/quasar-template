@@ -12,16 +12,75 @@
 // to match your app's branding.
 // Tip: Use the "Theme Builder" on Quasar's documentation website.
 
+// import quasar defaul variables.
+
 $primary: #19426b;
 $secondary: #26a69a;
 $accent: #9c27b0;
 
 $dark: #1d1d1d;
 
-$positive: #21ba45;
-$negative: #c10015;
-$info: #31ccec;
-$warning: #f2c037;
+$negative: #d7373c; // Error Messaging
+$warning: #f37338; // ADA Compliant
+
+// Overwrite colors
+//--> Canvas Colors, Gray tints  & Shades
+$grey-7: #141413 !default;
+$grey-6: #323231 !default;
+$grey-5: #555250 !default;
+$grey-3: #b1ada6 !default;
+$grey-2: #e8e5e1 !default;
+$grey-1: #f8f7f5 !default;
+
+//--> Accent Colors
+$orange-4: #cf4500 !default;
+$yellow-4: #ffc61e !default;
+$amber-4: #f38b00 !default; // Gold-4
+$green-4: #628020 !default;
+$teal-4: #25836d !default;
+
+$white: #ffffff;
 
 //--> new brand-colors
 $main: #f8f9ff;
+
+//--> Spaces
+$space-base: 16px !default;
+$space-x-base: $space-base !default;
+$space-y-base: $space-base !default;
+
+$breakpoint-xs: 359px !default;
+$breakpoint-sm: 599px !default;
+$breakpoint-md: 959px !default;
+$breakpoint-lg: 1448px !default;
+
+// .sass no soporta multi-line list, por lo que todo debe de estar en una sola linea
+//prettier-ignore
+$sizes: ('xs': 0, 'sm': ($breakpoint-xs + 1), 'md': ($breakpoint-sm + 1), 'lg': ($breakpoint-md + 1), 'xl': ($breakpoint-lg + 1)) !default;
+
+$h1: (
+  size: 2rem,
+  line-height: 2rem,
+  letter-spacing: -0.01562em,
+  weight: 300,
+) !default;
+$h2: (
+  size: 1.5rem,
+  line-height: 1.5rem,
+  letter-spacing: normal,
+  weight: 400,
+) !default;
+$h3: (
+  size: 1.25rem,
+  line-height: 1.25rem,
+  letter-spacing: normal,
+  weight: 400,
+) !default;
+
+// Eye Brown LG
+$subtitle1: (
+  size: 1rem,
+  line-height: 1.75rem,
+  letter-spacing: normal,
+  weight: 400,
+) !default;

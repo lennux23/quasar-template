@@ -14,6 +14,7 @@
     <q-page-container>
       <router-view />
     </q-page-container>
+    <e-footer></e-footer>
   </q-layout>
 </template>
 
