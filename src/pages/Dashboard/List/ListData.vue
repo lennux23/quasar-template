@@ -36,6 +36,7 @@
       :columns="columns"
       :showAddBtn="false"
       :serverSide="false"
+      :totalRowNumber="10"
     >
     </e-table>
   </div>

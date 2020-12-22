@@ -73,12 +73,9 @@
     </template>
     <template v-slot:bottom="scope">
       <div class="row items-center full-width justify-center">
-        <div class="text-body2 q-mr-sm">
-          {{ paginationTable.page }} / {{ pagesNumber }}
-        </div>
         <q-btn
-          icon="eva-arrowhead-left-outline"
-          color="secondary"
+          icon="skip_previous"
+          color="black"
           round
           dense
           flat
@@ -87,18 +84,27 @@
         />
 
         <q-btn
-          icon="eva-arrow-ios-back-outline"
-          color="secondary"
+          icon="arrow_left"
+          color="black"
           round
           dense
           flat
           :disable="scope.isFirstPage"
           @click="scope.prevPage"
         />
-        <div class="text-body2">{{ paginationTable.page }}</div>
+        <q-select
+          outlined
+          class="q-mr-sm"
+          v-model="paginationTable.rowsPerPage"
+          :options="rowsPerPageOptions"
+          borderless
+          hide-dropdown-icon
+          @input="resetPage()"
+        />
+        <div class="text-body2">of {{ pagesNumber }}</div>
         <q-btn
-          icon="eva-arrow-ios-forward-outline"
-          color="secondary"
+          icon="arrow_right"
+          color="black"
           round
           dense
           flat
@@ -107,22 +113,16 @@
         />
 
         <q-btn
-          icon="eva-arrowhead-right-outline"
-          color="secondary"
+          icon="skip_next"
+          color="black"
           round
           dense
           flat
           :disable="scope.isLastPage"
           @click="scope.lastPage"
         />
-        <q-select
-          class="q-pl-md"
-          v-model="paginationTable.rowsPerPage"
-          :options="rowsPerPageOptions"
-          borderless
-          color="secondary"
-          @input="resetPage()"
-        />
+        <div>Displaying ({{ data.length }} of {{ totalRowNumber }})</div>
+
         <div v-if="showAddBtn" class="absolute" style="right:0; bottom:15px">
           <q-btn icon="add" color="secondary" round @click="handleAdd()" />
         </div>
@@ -136,6 +136,11 @@
       </div>
       <div v-if="showAddBtn" class="absolute" style="right:0; bottom:15px">
         <q-btn icon="add" color="secondary" round @click="handleAdd()" />
+      </div>
+    </template>
+    <template>
+      <div class="q-pa-md">
+        <q-table title="Treats" :data="data" :columns="columns" row-key="name" />
       </div>
     </template>
   </q-table>
@@ -363,3 +368,4 @@ export default {
   },
 };
 </script>
+<style lang="scss"></style>
