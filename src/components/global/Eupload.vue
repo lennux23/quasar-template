@@ -21,7 +21,7 @@
           {{ select }}
           <div class="q-mt-xl btn-add-container">
             <q-btn
-              class="btn-add"
+              class="btn-add q-ml-xl text-caption q-pa-none"
               flat
               icon="
                   add_circle_outline"
@@ -49,7 +49,7 @@
                 <template v-slot:append>
                   <div
                     @click="fileToUpload = null"
-                    class="e-remove-btn cursor-pointer"
+                    class="e-remove-btn text-caption cursor-pointer"
                   >
                     {{ remove }}
                   </div>
@@ -194,8 +194,6 @@ body.desktop .q-hoverable:hover > .q-focus-helper {
   background: none;
 }
 .btn-add {
-  padding: none;
-  font-size: 0.8em;
   margin-left: -15px;
 }
 .btn-add-container .label-btn {
@@ -207,8 +205,6 @@ body.desktop .q-hoverable:hover > .q-focus-helper {
   transform: rotate(45deg);
 }
 .e-remove-btn {
-  color: $orange-4;
-  font-size: 0.8rem;
 }
 .e-file .q-field__counter {
   position: absolute;
