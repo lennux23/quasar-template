@@ -122,79 +122,79 @@ export default {
 };
 </script>
 <style lang="scss">
-.q-field--float .q-field__label {
-  margin-top: -20px;
-  transition-delay: 0s;
-  transition-duration: 0s;
-  transition-property: all;
-  transition-timing-function: ease;
-  margin-left: -10px;
-}
-.q-field--dense.q-field--float .q-field__label {
-  transform: translatey(0);
-  transition-delay: 0s;
-  transition-duration: 0s;
-  transition-property: all;
-  transition-timing-function: ease;
-  font-size: x-small;
-}
-.q-field--dense .q-field__label {
-  top: 0;
-  position: absolute;
-}
-.q-field--labeled ::-webkit-input-placeholder {
-  display: block;
-}
-input {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 10px;
-}
-.q-card {
-  box-shadow: none;
-}
-.q-tab {
-  padding: 0 27px 0 0;
-}
-.q-tabs__content--align-justify .q-tab {
-  flex: none;
-}
-.q-tab-panel {
-  padding: 16px 0 0 0;
-  margin: 0 0 40px 0;
-}
-.q-btn {
-  text-transform: none;
-}
-body.desktop .q-hoverable:hover > .q-focus-helper {
-  background: none;
-}
-.btn-add {
-  padding: none;
-  font-size: 0.8em;
-  margin-left: -15px;
-}
-.btn-add-container .label-btn {
-  color: #777470;
-  font-size: 0.8em;
-}
-.i-file {
-  margin-top: -10px;
-  transform: rotate(45deg);
-}
-.e-remove-btn {
-  color: $orange-4;
-  font-size: 0.8rem;
-}
-.e-file .q-field__counter {
-  position: absolute;
-  margin-top: -25px;
-  margin-left: 21px;
-}
-.e-file-mult .q-field__counter {
-  position: absolute;
-  margin-top: -25px;
-  margin-left: 21px;
-}
+// .q-field--float .q-field__label {
+//   margin-top: -20px;
+//   transition-delay: 0s;
+//   transition-duration: 0s;
+//   transition-property: all;
+//   transition-timing-function: ease;
+//   margin-left: -10px;
+// }
+// .q-field--dense.q-field--float .q-field__label {
+//   transform: translatey(0);
+//   transition-delay: 0s;
+//   transition-duration: 0s;
+//   transition-property: all;
+//   transition-timing-function: ease;
+//   font-size: x-small;
+// }
+// .q-field--dense .q-field__label {
+//   top: 0;
+//   position: absolute;
+// }
+// .q-field--labeled ::-webkit-input-placeholder {
+//   display: block;
+// }
+// input {
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   margin-bottom: 10px;
+// }
+// .q-card {
+//   box-shadow: none;
+// }
+// .q-tab {
+//   padding: 0 27px 0 0;
+// }
+// .q-tabs__content--align-justify .q-tab {
+//   flex: none;
+// }
+// .q-tab-panel {
+//   padding: 16px 0 0 0;
+//   margin: 0 0 40px 0;
+// }
+// .q-btn {
+//   text-transform: none;
+// }
+// body.desktop .q-hoverable:hover > .q-focus-helper {
+//   background: none;
+// }
+// .btn-add {
+//   padding: none;
+//   font-size: 0.8em;
+//   margin-left: -15px;
+// }
+// .btn-add-container .label-btn {
+//   color: #777470;
+//   font-size: 0.8em;
+// }
+// .i-file {
+//   margin-top: -10px;
+//   transform: rotate(45deg);
+// }
+// .e-remove-btn {
+//   color: $orange-4;
+//   font-size: 0.8rem;
+// }
+// .e-file .q-field__counter {
+//   position: absolute;
+//   margin-top: -25px;
+//   margin-left: 21px;
+// }
+// .e-file-mult .q-field__counter {
+//   position: absolute;
+//   margin-top: -25px;
+//   margin-left: 21px;
+// }
 </style>

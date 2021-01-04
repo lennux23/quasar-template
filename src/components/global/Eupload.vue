@@ -1,9 +1,10 @@
 <template>
   <div>
-    <q-card class="btm-add">
+    <q-card class="no-shadow">
       <q-tabs
-        v-model="tab"
         dense
+        v-model="tab"
+        no-caps
         class="text-grey"
         active-color="primary"
         indicator-color="primary"
@@ -19,22 +20,26 @@
       <q-tab-panels v-model="tab" animated>
         <q-tab-panel name="single file">
           {{ select }}
-          <div class="q-mt-xl btn-add-container">
+          <hr class="q-mt-md q-separator q-separator q-separator--horizontal" />
+          <div class="q-mt-md btn-add-container">
             <q-btn
-              class="btn-add q-ml-xl text-caption q-pa-none"
+              no-caps
+              dense
+              class="text-caption"
               flat
-              icon="
-                  add_circle_outline"
+              icon="add_circle_outline"
               color="orange-4"
               :label="$t('eUpload.btnAdd')"
               @click="$refs.uploadFile.pickFiles()"
             />
-            <span class="label-btn">{{ max }}</span>
-            <div class="q-mt-lg" :hidden="fileToUpload === null">
+            <span class="label-btn text-caption">{{ max }}</span>
+            <div
+              class="q-mt-lg text-caption flex-start"
+              :hidden="fileToUpload === null"
+            >
               <q-file
                 :counter-label="counterLabelFn"
                 max-files="1"
-                class="e-file"
                 outlined
                 color="orange-4"
                 style="color: $orange-4;"
@@ -49,7 +54,7 @@
                 <template v-slot:append>
                   <div
                     @click="fileToUpload = null"
-                    class="e-remove-btn text-caption cursor-pointer"
+                    class=" text-caption cursor-pointer"
                   >
                     {{ remove }}
                   </div>
@@ -61,9 +66,12 @@
 
         <q-tab-panel name="multiple files">
           {{ select }}
-          <div class="q-mt-xl btn-add-container">
+          <hr class="q-mt-md q-separator q-separator q-separator--horizontal" />
+          <div class="q-mt-md text-caption btn-add-container">
             <q-btn
-              class="btn-add"
+              no-caps
+              dense
+              class="btn-add text-caption"
               flat
               icon="
                   add_circle_outline"
@@ -71,10 +79,9 @@
               :label="$t('eUpload.btnAdd')"
               @click="$refs.uploadFile.pickFiles()"
             />
-            <span class="label-btn">{{ maxFilesMult }} </span>
+            <span class="label-btn text-caption">{{ maxFilesMult }} </span>
             <div class="q-mt-lg" :hidden="fileToUpload === null">
               <q-file
-                class="e-file-mult"
                 outlined
                 max-files="3"
                 :counter-label="counterLabel"
@@ -88,7 +95,10 @@
                   <q-icon size="xs" class="i-file" name="attach_file" />
                 </template>
                 <template v-slot:append>
-                  <div @click="fileToUpload = null" class="e-remove-btn">
+                  <div
+                    @click="fileToUpload = null"
+                    class=" text-caption cursor-pointer"
+                  >
                     {{ remove }}
                   </div>
                 </template>
@@ -135,7 +145,7 @@ export default {
   },
   methods: {
     counterLabel({ totalSize, filesNumber, maxFiles }) {
-      this.maxFilesMult = `${filesNumber} of ${maxFiles}`;
+      this.maxFilesMult = `(${filesNumber} of ${maxFiles})`;
       return `${totalSize}`;
     },
     counterLabelFn({ totalSize }) {
@@ -151,69 +161,25 @@ export default {
 };
 </script>
 <style lang="scss">
-.q-field--float .q-field__label {
-  margin-top: -20px;
-  transition-delay: 0s;
-  transition-duration: 0s;
-  transition-property: all;
-  transition-timing-function: ease;
-  margin-left: -10px;
-}
-.q-field--dense.q-field--float .q-field__label {
-  transform: translatey(0);
-  transition-delay: 0s;
-  transition-duration: 0s;
-  transition-property: all;
-  transition-timing-function: ease;
-  font-size: x-small;
-}
-.q-field--dense .q-field__label {
-  top: 0;
+.q-field__counter {
+  //Esta clase acomodan el contador de KB dentro de su label
   position: absolute;
-}
-.q-field--labeled ::-webkit-input-placeholder {
-  display: block;
-}
-.q-card {
-  box-shadow: none;
-}
-.q-tab {
-  padding: 0 27px 0 0;
+  margin-top: -25px;
+  margin-left: 21px;
 }
 .q-tabs__content--align-justify .q-tab {
-  flex: none;
+  flex: auto;
 }
-.q-tab-panel {
-  padding: 16px 0 0 0;
-  margin: 0 0 40px 0;
-}
-.q-btn {
-  text-transform: none;
-}
-body.desktop .q-hoverable:hover > .q-focus-helper {
-  background: none;
-}
-.btn-add {
-  margin-left: -15px;
-}
-.btn-add-container .label-btn {
-  color: #777470;
-  font-size: 0.8em;
+.q-tab {
+  padding: 0 100px 0 0;
 }
 .i-file {
+  // Girar el icono y posicionarlo segun el diseño
   margin-top: -10px;
   transform: rotate(45deg);
 }
-.e-remove-btn {
-}
-.e-file .q-field__counter {
-  position: absolute;
-  margin-top: -25px;
-  margin-left: 21px;
-}
-.e-file-mult .q-field__counter {
-  position: absolute;
-  margin-top: -25px;
-  margin-left: 21px;
+.q-tab-panel {
+  padding: 10px 0 0 0;
+  // Acomoda el contenido de las tabs
 }
 </style>
