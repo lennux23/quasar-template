@@ -10,11 +10,12 @@
     "test": "echo \"No test specified\" && exit 0"
   },
   "dependencies": {
+    "@aws-amplify/api-graphql": "^2.2.8",
     "@forgerock/javascript-sdk": "^1.0.5",
     "@quasar/extras": "^1.9.5",
     "aws-amplify": "^3.1.1",
     "aws-amplify-vue": "^2.1.2",
-    "axios": "^0.18.1",
+    "axios": "^0.22.0",
     "quasar": "^1.13.2",
     "ramda": "^0.27.1",
     "tableexport": "^5.2.0",
