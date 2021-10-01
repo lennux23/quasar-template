@@ -3,43 +3,17 @@
     <template v-slot:title> {{ $t('gral.pages.logIn') }}</template>
     <template v-slot:form>
       <q-form @submit="handleAuth">
-        <q-input
-          dense
-          class="q-mb-md"
-          v-model="form.username"
-          :label="$tc('user.label', 1)"
-          lazy-rules
-          :rules="[
-            val =>
-              (val && val.length > 0) ||
-              $tc('user.label', 1) + $t('errors.fieldRequired'),
-          ]"
-        />
-        <q-input
-          dense
-          class="q-mb-lg"
-          v-model="form.password"
-          :label="$t('user.password')"
-          lazy-rules
-          :rules="[
-            val =>
-              (val && val.length > 0) ||
-              $t('user.password') + $t('errors.fieldRequired'),
-          ]"
-        />
-        <q-btn
-          :loading="loading"
-          unelevated
-          type="submit"
-          class="q-mb-md full-width"
-          color="primary"
-          :label="$t('gral.pages.logIn')"
-        >
+        <e-input v-model="form.username" :label="$tc('user.label', 1)" alphaChar />
+        <e-input v-model="form.password" :label="$t('user.password')" alphaChar />
+        <e-btn :loading="loading" :label="$t('gral.pages.logIn')">
           <template v-slot:loading>
             <q-spinner-facebook />
           </template>
-        </q-btn>
+        </e-btn>
       </q-form>
+    </template>
+    <template v-slot:version>
+      {{ version }}
     </template>
   </main-page-tpl>
 </template>
@@ -59,7 +33,11 @@ export default {
         username: null,
         password: null,
       },
+      version: process.env.VERSION,
     };
+  },
+  created() {
+    console.log(process.env.VERSION);
   },
   methods: {
     async handleAuth() {

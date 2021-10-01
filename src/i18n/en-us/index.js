@@ -9,6 +9,14 @@ export default {
       description: `You are about delete the user “{user}” from the platform,`,
     },
   },
+  eTable: {
+    pagination: {
+      page: 'Page',
+      of: 'of {pagesNumber}',
+      displaying:
+        'Displaying ({firstRowNumber} - {endRowNumber} of {totalRowNumber})',
+    },
+  },
   gral: {
     pages: {
       logIn: 'Log in',

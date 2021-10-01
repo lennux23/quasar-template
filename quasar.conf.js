@@ -1,3 +1,7 @@
+const fs = require('fs');
+const packageJson = fs.readFileSync('./package.json');
+const VERSION = JSON.parse(packageJson).version || 0;
+
 /*
  * This file runs in a Node context (it's NOT transpiled by Babel), so use only
  * the ES6 features that are supported by your Node version. https://node.green/
@@ -68,7 +72,11 @@ module.exports = function(/* ctx */) {
 
       // Options below are automatically set depending on the env, set them if you want to override
       // extractCSS: false,
-
+      env: {
+        API_BASE_URL: process.env.API_BASE_URL,
+        USE_SAML: process.env.USE_SAML,
+        VERSION: VERSION,
+      },
       // https://quasar.dev/quasar-cli/cli-documentation/handling-webpack
       extendWebpack(cfg) {
         cfg.module.rules.push({
